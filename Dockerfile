@@ -19,4 +19,4 @@ RUN pip install --no-cache-dir -r training_ner/requirements.txt
 RUN pip install --no-cache-dir runpod
 
 # Run handler
-CMD ["python", "-u", "handler.py"]
+CMD ["python", "-m", "runpod.serverless.worker", "handler:handler"]
