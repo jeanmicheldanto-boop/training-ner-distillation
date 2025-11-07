@@ -15,5 +15,8 @@ COPY . /app
 # Install Python packages
 RUN pip install --no-cache-dir -r training_ner/requirements.txt
 
-# Default command
-CMD ["python", "training_ner/train_kd.py", "--config", "training_ner/configs/kd_camembert.yaml"]
+# Install RunPod handler
+RUN pip install --no-cache-dir runpod
+
+# Run handler
+CMD ["python", "-u", "handler.py"]
