@@ -1,0 +1,5 @@
+{"tokens": ["Jean-Baptiste", "Durand", "habite", "à", "Paris", "."], "ner_tags": ["B-PER", "I-PER", "O", "O", "B-LOC", "O"]}
+{"tokens": ["Le", "docteur", "Martin", "travaille", "à", "l'", "hôpital", "de", "Lyon", "."], "ner_tags": ["O", "O", "B-PER", "O", "O", "O", "B-ORG", "O", "B-LOC", "O"]}
+{"tokens": ["Marie", "consulte", "le", "psychiatre", "Dr", ".", "Dupont", "à", "Marseille", "."], "ner_tags": ["B-PER", "O", "O", "O", "O", "O", "B-PER", "O", "B-LOC", "O"]}
+{"tokens": ["L'", "EHPAD", "Les", "Roses", "se", "situe", "rue", "de", "la", "Paix", "."], "ner_tags": ["O", "B-ORG", "I-ORG", "I-ORG", "O", "O", "B-LOC", "I-LOC", "I-LOC", "I-LOC", "O"]}
+{"tokens": ["Le", "rapport", "social", "a", "été", "rédigé", "par", "Sophie", "Bernard", "."], "ner_tags": ["O", "O", "O", "O", "O", "O", "O", "B-PER", "I-PER", "O"]}

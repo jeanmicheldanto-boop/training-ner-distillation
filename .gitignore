@@ -1,8 +1,10 @@
 # Données volumineuses (à uploader séparément sur RunPod)
-corpus/
+# corpus/  # Keep corpus code in repo
 data_local/
 sources_admin/
 sources_narr/
+corpus/data/  # Ignore corpus data files only
+corpus/*.txt  # Ignore large text files
 
 # Cache Python
 __pycache__/

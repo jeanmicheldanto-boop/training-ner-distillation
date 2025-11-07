@@ -1,0 +1,2 @@
+{"tokens": ["Pierre", "Lefebvre", "est", "médecin", "à", "Toulouse", "."], "ner_tags": ["B-PER", "I-PER", "O", "O", "O", "B-LOC", "O"]}
+{"tokens": ["La", "Croix-Rouge", "intervient", "dans", "le", "quartier", "."], "ner_tags": ["O", "B-ORG", "O", "O", "O", "O", "O"]}
