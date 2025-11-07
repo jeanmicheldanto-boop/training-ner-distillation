@@ -1,0 +1,19 @@
+# Ignore directories with large data files
+data_local/
+corpus/
+
+# Ignore Python virtual environment
+.venv/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore Git files
+.git/
+.gitignore
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
