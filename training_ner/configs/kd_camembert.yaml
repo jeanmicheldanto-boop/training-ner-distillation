@@ -1,0 +1,117 @@
+# Configuration pour distillation Knowledge Distillation CamemBERT NER
+# Teacher: Jean-Baptiste/camembert-ner (12 couches)
+# Student: camembert-base réduit à 10 couches
+
+teacher:
+  model_name: "Jean-Baptiste/camembert-ner"
+  check_crf: true  # Vérifie si le modèle a une couche CRF
+  use_auth_token: false  # Mettre true si modèle privé
+
+student:
+  base_model: "camembert-base"
+  num_layers: 10  # Réduction de 12 à 10 couches
+  copy_embeddings: true  # Copier embeddings du teacher
+  copy_classifier: true  # Copier la tête de classification
+  copy_crf: true  # Copier transitions CRF si disponibles
+  
+  # Mapping des couches teacher → student pour distillation hidden states
+  # Teacher (12 couches) → Student (10 couches)
+  layer_mapping:
+    teacher: [2, 4, 6, 8, 10, 12]  # Couches du teacher à extraire
+    student: [2, 3, 5, 7, 9, 10]   # Couches du student correspondantes
+
+distillation:
+  temperature: 2.5  # Température pour softening des logits
+  
+  # Pondération des pertes par phase
+  # Format: [L_CE, L_KD, L_Hidden, L_CRF]
+  loss_weights_phase1: [1.0, 0.5, 0.1, 0.1]  # Epoch 1: warm-up
+  loss_weights_phase2: [1.0, 1.0, 0.2, 0.2]  # Epochs 2+: full distillation
+  
+  phase1_epochs: 1  # Nombre d'epochs en phase 1
+
+pruning:
+  rate: 0.25  # Pruner 25% des têtes d'attention
+  method: "grad_activation"  # "grad_activation" ou "entropy"
+  importance_metric: "l1_norm"  # "l1_norm" ou "l2_norm"
+  finetune_epochs: 2  # Epochs de fine-tuning après pruning
+  finetune_lr_ratio: 0.5  # LR pour fine-tuning = lr * ratio
+
+training:
+  # Paramètres d'entraînement
+  batch_size: 16
+  learning_rate: 2.0e-5
+  max_epochs: 10
+  warmup_ratio: 0.1  # 10% des steps pour warmup
+  weight_decay: 0.01
+  gradient_clip: 1.0  # Gradient clipping max norm
+  
+  # Optimisation
+  optimizer: "adamw"
+  scheduler: "linear"  # "linear", "cosine", "constant"
+  
+  # GPU et performance
+  mixed_precision: true  # FP16 training (si GPU compatible)
+  dataloader_workers: 4
+  pin_memory: true
+  
+  # Validation et checkpointing
+  eval_steps: 500  # Validation tous les N steps
+  save_steps: 1000  # Sauvegarde checkpoint tous les N steps
+  logging_steps: 100  # Log métriques tous les N steps
+  save_total_limit: 3  # Garder seulement les 3 meilleurs checkpoints
+
+data:
+  # Chemins des données
+  train_file: "data/train.jsonl"
+  val_file: "data/val.jsonl"
+  test_file: "data/test.jsonl"
+  label2id_file: "data/label2id.json"
+  
+  # Preprocessing
+  max_length: 512  # Longueur max des séquences
+  padding: "max_length"  # "max_length" ou "longest"
+  truncation: true
+  
+  # Format attendu: BIOES
+  label_scheme: "BIOES"  # "BIO", "BIOES", ou "IOB"
+
+runpod:
+  # Configuration spécifique RunPod
+  gpu_type: "RTX 4090"  # ou "A100", "RTX 3090"
+  cuda_visible_devices: "0"  # GPU à utiliser
+  
+  # Chemins RunPod (à adapter selon montage volumes)
+  workspace: "/workspace"
+  data_dir: "/workspace/data"
+  output_dir: "/workspace/artifacts"
+  cache_dir: "/workspace/.cache"
+
+output:
+  # Dossiers de sortie
+  student_dir: "artifacts/student_10L"
+  pruned_dir: "artifacts/student_10L_pruned"
+  final_dir: "artifacts/student_10L_final"
+  
+  # Fichiers à sauvegarder
+  save_config: true
+  save_tokenizer: true
+  save_model: true  # pytorch_model.bin ou model.safetensors
+  save_optimizer: false  # Sauver état optimizer (pour reprise)
+  save_pruning_mask: true  # Sauver masque de pruning
+  save_layer_mapping: true  # Sauver mapping couches
+
+logging:
+  # Niveau de logging
+  level: "INFO"  # "DEBUG", "INFO", "WARNING", "ERROR"
+  
+  # Tensorboard (optionnel)
+  use_tensorboard: false
+  tensorboard_dir: "artifacts/runs"
+  
+  # Weights & Biases (optionnel)
+  use_wandb: false
+  wandb_project: "camembert-ner-distillation"
+  wandb_entity: null  # Votre username W&B
+
+seed: 42  # Random seed pour reproductibilité

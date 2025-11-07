@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# Models et artifacts (trop lourds pour git)
+artifacts/
+*.bin
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+
+# Données (à gérer séparément)
+data/*.jsonl
+data/*.txt
+!data/README.md
+!data/label2id.json
+
+# Logs
+*.log
+*.jsonl
+training_log.jsonl
+training_summary.json
+
+# Tensorboard
+runs/
+
+# Cache
+.cache/
+*.cache
+
+# Temp
+tmp/
+temp/
+*.tmp

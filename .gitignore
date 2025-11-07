@@ -1,0 +1,33 @@
+# Données volumineuses (à uploader séparément sur RunPod)
+corpus/
+data_local/
+sources_admin/
+sources_narr/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+*.jsonl
+
+# Checkpoints
+artifacts/
+*.bin
+*.pt
+*.pth
+*.safetensors
