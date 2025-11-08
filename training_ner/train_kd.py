@@ -13,10 +13,10 @@ from torch.cuda.amp import autocast, GradScaler
 from tqdm import tqdm
 import logging
 
-from models import load_teacher, create_student, validate_teacher
-from losses import create_distillation_loss
-from data_loader import load_label_mapping, create_dataloaders
-from utils import (
+from training_ner.models import load_teacher, create_student, validate_teacher
+from training_ner.losses import create_distillation_loss
+from training_ner.data_loader import load_label_mapping, create_dataloaders
+from training_ner.utils import (
     setup_logging,
     load_config,
     set_seed,

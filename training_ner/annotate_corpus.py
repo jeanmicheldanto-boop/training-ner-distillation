@@ -25,7 +25,7 @@ except ImportError as e:
     logging.warning(f"⚠️ Dependencies not installed: {e}")
     DEPENDENCIES_OK = False
 
-from utils import setup_logging, set_seed
+from training_ner.utils import setup_logging, set_seed
 
 logger = logging.getLogger(__name__)
 
