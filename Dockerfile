@@ -1,4 +1,4 @@
-# Force new build
+# Force new build (retry 2025-11-08)
 FROM nvidia/cuda:11.8.0-runtime-ubuntu22.04
 
 WORKDIR /app
