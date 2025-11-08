@@ -1,0 +1,500 @@
+2025-11-08  18:20:15.704 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:20:13.502 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:20:11.216 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:20:03.784 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:19:56.569 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:19:56.244 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:19:54.606 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:19:39.488 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:19:39.309 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:19:38.024 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:19:29.893 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:19:29.703 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:19:29.485 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:19:26.204 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:19:20.383 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:19:18.209 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:19:13.926 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:19:12.515 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:19:09.560 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:19:09.559 | info | wphxwuhw1043yp | \n
+2025-11-08  18:19:08.721 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:19:06.633 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | \n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | \n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | \n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | \n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | CUDA Version 11.8.0\n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | \n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | ==========\n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | == CUDA ==\n
+2025-11-08  18:19:02.378 | info | 1gi7x72p1osram | ==========\n
+2025-11-08  18:19:02.377 | info | 1gi7x72p1osram | \n
+2025-11-08  18:19:01.759 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:18:57.216 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:18:55.529 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:18:54.335 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:18:54.334 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:51.414 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:18:43.511 | info | 1gi7x72p1osram | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:18:43.511 | info | 1gi7x72p1osram | \n
+2025-11-08  18:18:43.511 | info | 1gi7x72p1osram | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:18:43.510 | info | 1gi7x72p1osram | \n
+2025-11-08  18:18:43.510 | info | 1gi7x72p1osram | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:18:43.510 | info | 1gi7x72p1osram | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:18:43.510 | info | 1gi7x72p1osram | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:18:43.510 | info | 1gi7x72p1osram | \n
+2025-11-08  18:18:43.510 | info | 1gi7x72p1osram | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:18:43.510 | info | 1gi7x72p1osram | \n
+2025-11-08  18:18:43.510 | info | 1gi7x72p1osram | CUDA Version 11.8.0\n
+2025-11-08  18:18:43.510 | info | 1gi7x72p1osram | \n
+2025-11-08  18:18:43.510 | info | 1gi7x72p1osram | ==========\n
+2025-11-08  18:18:43.510 | info | 1gi7x72p1osram | == CUDA ==\n
+2025-11-08  18:18:43.510 | info | 1gi7x72p1osram | ==========\n
+2025-11-08  18:18:43.510 | info | 1gi7x72p1osram | \n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:42.444 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | CUDA Version 11.8.0\n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | ==========\n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | == CUDA ==\n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | ==========\n
+2025-11-08  18:18:41.844 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:39.015 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:18:38.783 | info | wphxwuhw1043yp | \n
+2025-11-08  18:18:37.207 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:18:29.822 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | CUDA Version 11.8.0\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | ==========\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | == CUDA ==\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | ==========\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | CUDA Version 11.8.0\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | ==========\n
+2025-11-08  18:18:23.508 | info | bo7px42s94iao4 | == CUDA ==\n
+2025-11-08  18:18:23.507 | info | bo7px42s94iao4 | ==========\n
+2025-11-08  18:18:23.507 | info | bo7px42s94iao4 | \n
+2025-11-08  18:18:20.639 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:18:20.358 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:18:14.229 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:18:02.442 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:57.592 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:17:57.591 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:57.591 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:57.187 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:17:50.988 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:17:48.367 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:17:47.373 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:17:45.007 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:17:39.238 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:34.209 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:30.852 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:17:29.178 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:17:29.178 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:29.178 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:17:29.178 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:29.178 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:17:29.178 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:17:29.178 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:17:29.178 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:29.178 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:17:29.178 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:29.178 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:17:29.177 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:29.177 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:29.177 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:17:29.177 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:29.177 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:28.034 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:17:26.058 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:17:23.199 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:17:14.580 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:17:14.579 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:14.579 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:17:14.579 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:14.579 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:17:14.579 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:14.579 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:14.579 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:17:14.579 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:14.579 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:14.579 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:17:11.488 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:17:10.997 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:17:08.946 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:17:08.946 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:08.945 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:07.873 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:17:06.055 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:17:02.425 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:17:02.385 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:17:01.254 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:00.914 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | \n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:17:00.913 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:57.375 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:16:50.209 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:16:50.005 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | \n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | \n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | \n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | \n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | CUDA Version 11.8.0\n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | \n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | ==========\n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | == CUDA ==\n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | ==========\n
+2025-11-08  18:16:47.175 | info | 1gi7x72p1osram | \n
+2025-11-08  18:16:44.481 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:16:42.255 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:16:38.719 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:16:36.940 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:16:36.939 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:16:36.939 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:33.617 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:16:31.161 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:16:31.161 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:31.161 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:16:31.161 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:31.161 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:16:31.161 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:16:31.161 | info | wphxwuhw1043yp | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:16:31.161 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:31.160 | info | wphxwuhw1043yp | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:16:31.160 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:31.160 | info | wphxwuhw1043yp | CUDA Version 11.8.0\n
+2025-11-08  18:16:31.160 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:31.160 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:16:31.160 | info | wphxwuhw1043yp | == CUDA ==\n
+2025-11-08  18:16:31.160 | info | wphxwuhw1043yp | ==========\n
+2025-11-08  18:16:31.160 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:31.160 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:16:31.160 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:29.497 | error | 1gi7x72p1osram | worker exited with exit code 0
+2025-11-08  18:16:28.917 | error | bo7px42s94iao4 | worker exited with exit code 0
+2025-11-08  18:16:27.581 | error | wphxwuhw1043yp | worker exited with exit code 0
+2025-11-08  18:16:23.709 | info | 1gi7x72p1osram | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:16:23.709 | info | 1gi7x72p1osram | \n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | \n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | By pulling and using the container, you accept the terms and conditions of this license:\n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | This container image and its contents are governed by the NVIDIA Deep Learning Container License.\n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | \n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.\n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | \n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | CUDA Version 11.8.0\n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | \n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | ==========\n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | == CUDA ==\n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | ==========\n
+2025-11-08  18:16:23.708 | info | 1gi7x72p1osram | \n
+2025-11-08  18:16:21.130 | info | wphxwuhw1043yp | <frozen runpy>:128: RuntimeWarning: 'runpod.serverless.worker' found in sys.modules after import of package 'runpod.serverless', but prior to execution of 'runpod.serverless.worker'; this may result in unpredictable behaviour\n
+2025-11-08  18:16:21.130 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:21.130 | info | wphxwuhw1043yp | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.\n
+2025-11-08  18:16:21.130 | info | wphxwuhw1043yp | \n
+2025-11-08  18:16:21.130 | info | wphxwuhw1043yp | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license\n
+2025-11-08  18:16:21.130 | info | wphxwuhw1043yp | By pulling and using the container, you accept the terms and conditions of this license:\n

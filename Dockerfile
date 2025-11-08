@@ -19,5 +19,8 @@ RUN python3.11 -m pip install --upgrade pip && \
     python3.11 -m pip install --no-cache-dir -r training_ner/requirements.txt && \
     python3.11 -m pip install --no-cache-dir runpod
 
+# Set PYTHONPATH to include /app for absolute imports
+ENV PYTHONPATH=/app:$PYTHONPATH
+
 # Run handler
 CMD ["python3.11", "-m", "runpod.serverless.worker", "handler:handler"]

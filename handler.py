@@ -251,9 +251,6 @@ def handler(job):
             "error_type": type(e).__name__
         }
 
-# Initialize the RunPod serverless worker
-runpod.serverless.start({"handler": handler})
-
 
 def main():
     """For local testing"""
@@ -270,3 +267,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+else:
+    # Initialize the RunPod serverless worker when imported as module
+    runpod.serverless.start({"handler": handler})
