@@ -249,13 +249,26 @@ def main():
     # Charger corpus
     sentences = load_corpus(args.input, max_samples=args.max_samples)
     
-    # TODO: Charger teacher et annoter
+    # Charger teacher model
     logger.info("\n" + "=" * 80)
     logger.info("🤖 LOADING TEACHER MODEL")
     logger.info("=" * 80)
-    logger.warning("⚠️ TODO: Implement teacher loading and annotation on RunPod")
     
-    # Pour l'instant, générer données d'exemple
+    from transformers import AutoTokenizer, AutoModelForTokenClassification
+    
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    logger.info(f"Using device: {device}")
+    
+    logger.info(f"Loading teacher model: {args.teacher}")
+    tokenizer = AutoTokenizer.from_pretrained(args.teacher)
+    model = AutoModelForTokenClassification.from_pretrained(args.teacher).to(device)
+    model.eval()
+    
+    # Get label mapping from model config
+    id2label = model.config.id2label
+    logger.info(f"Model loaded with {len(id2label)} labels: {list(id2label.values())}")
+    
+    # Annotate corpus
     logger.info("\n" + "=" * 80)
     logger.info("🏷️  ANNOTATING CORPUS")
     logger.info("=" * 80)
@@ -266,13 +279,12 @@ def main():
     for i in range(0, len(sentences), batch_size):
         batch = sentences[i:i+batch_size]
         
-        # TODO: Remplacer par annotation réelle
         batch_annotated = annotate_batch(
             batch,
-            model=None,  # TODO: passer vrai modèle
-            tokenizer=None,  # TODO: passer vrai tokenizer
-            id2label={},  # TODO: passer vrai mapping
-            device="cuda" if torch.cuda.is_available() else "cpu",
+            model=model,
+            tokenizer=tokenizer,
+            id2label=id2label,
+            device=device,
         )
         
         annotated_data.extend(batch_annotated)
