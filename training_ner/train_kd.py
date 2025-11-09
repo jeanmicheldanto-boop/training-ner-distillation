@@ -279,7 +279,7 @@ def main():
     logger.info("=" * 80)
     
     num_epochs = training_config["max_epochs"]
-    use_amp = training_config.get("mixed_precision", True) and device == "cuda"
+    use_amp = training_config.get("mixed_precision", False) and device == "cuda"
     
     best_val_loss = float("inf")
     start_time = time.time()
