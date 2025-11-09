@@ -129,21 +129,28 @@ def annotate_batch(
         Liste de dicts {"tokens": [...], "ner_tags": [...]}
     """
     import torch
+    import re
     
     results = []
     
+    # Better word tokenization (handle punctuation)
+    def tokenize_words(text):
+        # Split on whitespace and punctuation
+        words = re.findall(r"\w+(?:[-']\w+)*|[^\w\s]", text)
+        return [w for w in words if w.strip()]
+    
     # Collect all words from all sentences
     all_words = []
-    sentence_word_counts = []
+    sentence_word_lists = []
     
     for sentence in sentences:
-        words = sentence.split()
+        words = tokenize_words(sentence)
         all_words.extend(words)
-        sentence_word_counts.append(len(words))
+        sentence_word_lists.append(words)
     
     # Batch process all words
     all_labels = []
-    batch_size = 64  # Process 64 words at a time
+    batch_size = 64
     
     for i in range(0, len(all_words), batch_size):
         batch_words = all_words[i:i+batch_size]
@@ -153,6 +160,8 @@ def annotate_batch(
             batch_words,
             add_special_tokens=False,
             padding=True,
+            truncation=True,
+            max_length=32,
             return_tensors="pt"
         ).to(device)
         
@@ -165,12 +174,9 @@ def annotate_batch(
             all_labels.extend(labels)
     
     # Split labels back by sentences
-    label_idx = 0
-    for sentence_idx, sentence in enumerate(sentences):
-        num_words = sentence_word_counts[sentence_idx]
-        words = sentence.split()
-        word_labels = all_labels[label_idx:label_idx+num_words]
-        label_idx += num_words
+    for sentence_idx, words in enumerate(sentence_word_lists):
+        word_labels = all_labels[:len(words)]
+        all_labels = all_labels[len(words):]
         
         results.append({
             "tokens": words,
