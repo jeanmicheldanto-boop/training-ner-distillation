@@ -118,12 +118,6 @@ def annotate_batch(
     """
     Annote un batch de phrases avec le teacher.
     
-    TODO: Implémenter sur RunPod
-    - Tokeniser sentences
-    - Forward pass
-    - Décoder predictions
-    - Aligner tokens avec labels
-    
     Args:
         sentences: Liste de phrases
         model: Modèle teacher
@@ -134,18 +128,91 @@ def annotate_batch(
     Returns:
         Liste de dicts {"tokens": [...], "ner_tags": [...]}
     """
+    import torch
+    
     results = []
     
-    # TODO: Implémenter annotation réelle
-    # Pour l'instant, retourner format vide
-    for sentence in sentences:
-        # Tokeniser
-        tokens = sentence.split()  # Tokenization simpliste
-        ner_tags = ["O"] * len(tokens)  # Tous O par défaut
+    # Tokenize batch
+    encodings = tokenizer(
+        sentences,
+        padding=True,
+        truncation=True,
+        max_length=512,
+        return_tensors="pt",
+        return_offsets_mapping=True,
+        is_split_into_words=False,
+    )
+    
+    offset_mapping = encodings.pop("offset_mapping")
+    encodings = {k: v.to(device) for k, v in encodings.items()}
+    
+    # Forward pass
+    with torch.no_grad():
+        outputs = model(**encodings)
+        predictions = torch.argmax(outputs.logits, dim=-1)
+    
+    # Decode predictions for each sentence
+    for i, sentence in enumerate(sentences):
+        # Get tokens and predictions for this sentence
+        input_ids = encodings["input_ids"][i]
+        pred_labels = predictions[i]
+        offsets = offset_mapping[i]
+        
+        # Convert input_ids to tokens
+        tokens = tokenizer.convert_ids_to_tokens(input_ids)
+        
+        # Align predictions with original words
+        word_tokens = []
+        word_labels = []
+        current_word = []
+        current_label = None
+        
+        for j, (token, offset, label_id) in enumerate(zip(tokens, offsets, pred_labels)):
+            # Skip special tokens
+            if token in [tokenizer.cls_token, tokenizer.sep_token, tokenizer.pad_token]:
+                continue
+            
+            label = id2label.get(label_id.item(), "O")
+            
+            # Check if this is a new word (offset starts at non-zero or previous offset ended)
+            if offset[0] == 0 and offset[1] == 0:
+                continue  # Padding token
+            
+            # Remove ## prefix for subword tokens
+            clean_token = token.replace("▁", "").replace("##", "")
+            if not clean_token:
+                continue
+            
+            # For first token or new word
+            if not current_word or (j > 0 and offsets[j-1][1] < offset[0]):
+                # Save previous word if exists
+                if current_word:
+                    word_tokens.append("".join(current_word))
+                    word_labels.append(current_label if current_label else "O")
+                
+                # Start new word
+                current_word = [clean_token]
+                current_label = label
+            else:
+                # Continue current word
+                current_word.append(clean_token)
+                # Keep first token's label for the word
+                if current_label is None:
+                    current_label = label
+        
+        # Don't forget last word
+        if current_word:
+            word_tokens.append("".join(current_word))
+            word_labels.append(current_label if current_label else "O")
+        
+        # Fallback: if alignment failed, use simple word split
+        if not word_tokens:
+            word_tokens = sentence.split()
+            word_labels = ["O"] * len(word_tokens)
         
         results.append({
-            "tokens": tokens,
-            "ner_tags": ner_tags,
+            "tokens": word_tokens,
+            "ner_tags": word_labels,
         })
     
     return results
