@@ -132,27 +132,45 @@ def annotate_batch(
     
     results = []
     
+    # Collect all words from all sentences
+    all_words = []
+    sentence_word_counts = []
+    
     for sentence in sentences:
-        # Split sentence into words
         words = sentence.split()
-        word_labels = []
+        all_words.extend(words)
+        sentence_word_counts.append(len(words))
+    
+    # Batch process all words
+    all_labels = []
+    batch_size = 64  # Process 64 words at a time
+    
+    for i in range(0, len(all_words), batch_size):
+        batch_words = all_words[i:i+batch_size]
         
-        # Process each word individually
-        for word in words:
-            # Tokenize single word
-            encoding = tokenizer(
-                word,
-                add_special_tokens=False,
-                return_tensors="pt"
-            ).to(device)
-            
-            # Get prediction
-            with torch.no_grad():
-                output = model(**encoding)
-                # Take first token's prediction for the word
-                pred_id = torch.argmax(output.logits[0, 0]).item()
-                label = id2label.get(pred_id, "O")
-                word_labels.append(label)
+        # Tokenize batch
+        encodings = tokenizer(
+            batch_words,
+            add_special_tokens=False,
+            padding=True,
+            return_tensors="pt"
+        ).to(device)
+        
+        # Get predictions
+        with torch.no_grad():
+            outputs = model(**encodings)
+            # Take first token prediction for each word
+            pred_ids = torch.argmax(outputs.logits[:, 0, :], dim=-1)
+            labels = [id2label.get(pid.item(), "O") for pid in pred_ids]
+            all_labels.extend(labels)
+    
+    # Split labels back by sentences
+    label_idx = 0
+    for sentence_idx, sentence in enumerate(sentences):
+        num_words = sentence_word_counts[sentence_idx]
+        words = sentence.split()
+        word_labels = all_labels[label_idx:label_idx+num_words]
+        label_idx += num_words
         
         results.append({
             "tokens": words,
