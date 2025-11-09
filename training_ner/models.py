@@ -142,28 +142,85 @@ class StudentModel(nn.Module):
         copy_classifier: bool,
         copy_crf: bool,
     ):
+        """Copy weights from teacher to student with defensive checks.
+
+        This implementation is tolerant to small API differences between
+        transformer variants (missing token_type_embeddings, different
+        LayerNorm attribute names, absent CRF, ...). It logs what was
+        copied and warns on mismatches instead of throwing.
         """
-        Copie les poids du teacher vers le student.
-        
-        TODO: Implémenter sur RunPod
-        - Copier embeddings (word, position, token_type)
-        - Copier classifier head
-        - Copier CRF transitions si disponibles
-        - Logger les poids copiés
-        """
-        logger.info("🔄 Copying weights from teacher to student...")
-        
+        logger.info("🔄 Copying weights from teacher to student (defensive)")
+
+        # Embeddings copy (if available)
         if copy_embeddings:
-            # TODO: Copier embeddings.word_embeddings, position_embeddings, etc.
-            logger.info("  ✓ Embeddings copied")
-        
+            teacher_emb = getattr(getattr(teacher.model, 'base_model', teacher.model), 'embeddings', None)
+            student_emb = getattr(self.bert, 'embeddings', None)
+
+            if teacher_emb is None or student_emb is None:
+                logger.warning("  ⚠️ Embeddings object not found on teacher or student; skipping embeddings copy")
+            else:
+                try:
+                    # word_embeddings
+                    if hasattr(teacher_emb, 'word_embeddings') and hasattr(student_emb, 'word_embeddings'):
+                        student_emb.word_embeddings.weight.data.copy_(teacher_emb.word_embeddings.weight.data)
+
+                    # position_embeddings
+                    if hasattr(teacher_emb, 'position_embeddings') and hasattr(student_emb, 'position_embeddings'):
+                        student_emb.position_embeddings.weight.data.copy_(teacher_emb.position_embeddings.weight.data)
+
+                    # token_type_embeddings (may be absent for RoBERTa/CamemBERT)
+                    if hasattr(teacher_emb, 'token_type_embeddings') and hasattr(student_emb, 'token_type_embeddings'):
+                        student_emb.token_type_embeddings.weight.data.copy_(teacher_emb.token_type_embeddings.weight.data)
+
+                    # LayerNorm: try several common attribute names
+                    ln_names = ['LayerNorm', 'layer_norm', 'layernorm', 'layernorm_embedding']
+                    copied_ln = False
+                    for name in ln_names:
+                        if hasattr(teacher_emb, name) and hasattr(student_emb, name):
+                            t_ln = getattr(teacher_emb, name)
+                            s_ln = getattr(student_emb, name)
+                            try:
+                                s_ln.weight.data.copy_(t_ln.weight.data)
+                                s_ln.bias.data.copy_(t_ln.bias.data)
+                                copied_ln = True
+                                break
+                            except Exception:
+                                # Continue searching other names
+                                continue
+                    if not copied_ln:
+                        logger.warning("  ⚠️ Could not copy LayerNorm (no common attribute name found)")
+
+                    logger.info("  ✅ Embeddings copied (best-effort)")
+                except Exception as e:
+                    logger.warning(f"  ⚠️ Failed during embeddings copy: {e}")
+
+        # Classifier copy (weight + bias) - only if shapes compatible
         if copy_classifier:
-            # TODO: Copier classifier.weight et classifier.bias
-            logger.info("  ✓ Classifier head copied")
-        
-        if copy_crf and teacher.has_crf:
-            # TODO: Initialiser CRF et copier transitions
-            logger.info("  ✓ CRF transitions copied")
+            teacher_classifier = getattr(teacher.model, 'classifier', None)
+            student_classifier = getattr(self, 'classifier', None)
+
+            if teacher_classifier is None or student_classifier is None:
+                logger.warning("  ⚠️ Classifier object missing on teacher or student; skipping classifier copy")
+            else:
+                try:
+                    t_w_shape = tuple(teacher_classifier.weight.shape)
+                    s_w_shape = tuple(student_classifier.weight.shape)
+                    t_b_shape = tuple(teacher_classifier.bias.shape) if hasattr(teacher_classifier, 'bias') else None
+                    s_b_shape = tuple(student_classifier.bias.shape) if hasattr(student_classifier, 'bias') else None
+
+                    if t_w_shape == s_w_shape and t_b_shape == s_b_shape:
+                        student_classifier.weight.data.copy_(teacher_classifier.weight.data)
+                        if hasattr(teacher_classifier, 'bias') and hasattr(student_classifier, 'bias'):
+                            student_classifier.bias.data.copy_(teacher_classifier.bias.data)
+                        logger.info(f"  ✅ Classifier head copied (shape {s_w_shape})")
+                    else:
+                        logger.warning(f"  ⚠️ Classifier shape mismatch: teacher={t_w_shape}, student={s_w_shape}; skipping copy")
+                except Exception as e:
+                    logger.warning(f"  ⚠️ Failed during classifier copy: {e}")
+
+        # CRF transitions copy: not supported in student implementation yet
+        if copy_crf and getattr(teacher, 'has_crf', False):
+            logger.info("  ⚠️ CRF copy not implemented for student; skipping CRF transitions")
     
     def forward(
         self,
