@@ -65,7 +65,7 @@ def train_epoch(
     loss_fn,
     loss_weights,
     device,
-    use_amp=True,
+    use_amp=False,
     grad_clip=1.0,
 ):
     """
