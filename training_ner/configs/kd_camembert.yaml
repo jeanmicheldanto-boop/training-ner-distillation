@@ -63,10 +63,10 @@ training:
 
 data:
   # Chemins des données
-  train_file: "data/train.jsonl"
-  val_file: "data/val.jsonl"
-  test_file: "data/test.jsonl"
-  label2id_file: "data/label2id.json"
+  train_file: "training_ner/data/train.jsonl"
+  val_file: "training_ner/data/val.jsonl"
+  test_file: "training_ner/data/test.jsonl"
+  label2id_file: "training_ner/data/label2id.json"
   
   # Preprocessing
   max_length: 512  # Longueur max des séquences
