@@ -122,23 +122,31 @@ def train_epoch(
             teacher_outputs = teacher(
                 input_ids=input_ids,
                 attention_mask=attention_mask,
-                labels=labels
+                output_hidden_states=True
             )
         
         # 2. Forward student (with gradient)
         student_outputs = student(
             input_ids=input_ids,
             attention_mask=attention_mask,
-            labels=labels
+            labels=labels,
+            output_hidden_states=True
         )
         
         # 3. Calculate distillation losses
-        loss, loss_ce, loss_kd, loss_hidden, loss_crf = loss_fn(
+        loss_dict = loss_fn(
             student_outputs=student_outputs,
             teacher_outputs=teacher_outputs,
             labels=labels,
-            attention_mask=attention_mask
+            attention_mask=attention_mask,
+            loss_weights=loss_weights
         )
+        
+        loss = loss_dict["loss"]
+        loss_ce = loss_dict["loss_ce"]
+        loss_kd = loss_dict["loss_kd"]
+        loss_hidden = loss_dict["loss_hidden"]
+        loss_crf = loss_dict["loss_crf"]
         
         # 4. Backward pass
         if use_amp:
@@ -183,12 +191,6 @@ def validate(student, val_loader, loss_fn, loss_weights, device):
     """
     Valide le student sur le validation set.
     
-    TODO: Implémenter sur RunPod
-    - Boucle sur val_loader (no grad)
-    - Forward student
-    - Calculer loss
-    - Logger métriques
-    
     Args:
         student: Modèle student
         val_loader: DataLoader de validation
@@ -210,8 +212,16 @@ def validate(student, val_loader, loss_fn, loss_weights, device):
             attention_mask = batch["attention_mask"].to(device)
             labels = batch["labels"].to(device)
             
-            # TODO: Forward + calculer loss
-            loss = torch.tensor(0.5, device=device)
+            # Forward student only (no teacher needed for validation)
+            student_outputs = student(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                labels=labels,
+                output_hidden_states=False
+            )
+            
+            # Use student's built-in CE loss
+            loss = student_outputs.get("loss", torch.tensor(0.0))
             
             total_loss += loss.item()
             num_batches += 1
