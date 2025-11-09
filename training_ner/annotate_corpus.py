@@ -129,63 +129,58 @@ def annotate_batch(
         Liste de dicts {"tokens": [...], "ner_tags": [...]}
     """
     import torch
-    import re
+    from transformers import pipeline
+    
+    # Use HuggingFace pipeline for proper entity aggregation
+    ner_pipeline = pipeline(
+        'ner',
+        model=model,
+        tokenizer=tokenizer,
+        aggregation_strategy='simple',
+        device=0 if device == "cuda" else -1
+    )
     
     results = []
     
-    # Better word tokenization (handle punctuation)
-    def tokenize_words(text):
-        # Split on whitespace first, then handle each token
+    for sentence in sentences:
+        # Get entities from pipeline
+        entities = ner_pipeline(sentence)
+        
+        # Tokenize sentence into words (simple whitespace + punctuation)
+        import re
         tokens = []
-        for token in text.split():
-            # Keep apostrophe contractions together: l'union, c'est
-            # But split on hyphens, commas, periods, etc.
+        for token in sentence.split():
             parts = re.findall(r"\w+(?:'\w+)?|[^\w\s]", token)
             tokens.extend(parts)
-        return [w for w in tokens if w.strip()]
-    
-    # Collect all words from all sentences
-    all_words = []
-    sentence_word_lists = []
-    
-    for sentence in sentences:
-        words = tokenize_words(sentence)
-        all_words.extend(words)
-        sentence_word_lists.append(words)
-    
-    # Batch process all words
-    all_labels = []
-    batch_size = 64
-    
-    for i in range(0, len(all_words), batch_size):
-        batch_words = all_words[i:i+batch_size]
+        tokens = [t for t in tokens if t.strip()]
         
-        # Tokenize batch
-        encodings = tokenizer(
-            batch_words,
-            add_special_tokens=False,
-            padding=True,
-            truncation=True,
-            max_length=32,
-            return_tensors="pt"
-        ).to(device)
+        # Initialize all labels as O
+        ner_tags = ["O"] * len(tokens)
         
-        # Get predictions
-        with torch.no_grad():
-            outputs = model(**encodings)
-            # Take first token prediction for each word
-            pred_ids = torch.argmax(outputs.logits[:, 0, :], dim=-1)
-            labels = [id2label.get(pid.item(), "O") for pid in pred_ids]
-            all_labels.extend(labels)
-    
-    # Split labels back by sentences
-    for sentence_idx, words in enumerate(sentence_word_lists):
-        word_labels = all_labels[:len(words)]
-        all_labels = all_labels[len(words):]
+        # Map entities to tokens
+        for entity in entities:
+            entity_text = entity['word']
+            entity_label = f"I-{entity['entity_group']}"  # Use I- prefix
+            entity_start = entity['start']
+            entity_end = entity['end']
+            
+            # Find tokens that overlap with entity
+            current_pos = 0
+            for i, token in enumerate(tokens):
+                # Find token position in original sentence
+                token_start = sentence.find(token, current_pos)
+                if token_start == -1:
+                    continue
+                token_end = token_start + len(token)
+                current_pos = token_end
+                
+                # Check overlap
+                if token_start < entity_end and token_end > entity_start:
+                    ner_tags[i] = entity_label
         
         results.append({
-            "tokens": words,
-            "ner_tags": word_labels,
+            "tokens": tokens,
+            "ner_tags": ner_tags,
         })
     
     return results
