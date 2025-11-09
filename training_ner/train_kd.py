@@ -102,7 +102,10 @@ def train_epoch(
     total_loss_crf = 0.0
     num_batches = 0
     
-    scaler = GradScaler() if use_amp else None
+    # Désactiver GradScaler temporairement (placeholder loss ne fonctionne pas avec)
+    # scaler = GradScaler() if use_amp else None
+    scaler = None
+    use_amp = False  # Force disable AMP pour éviter GradScaler bug
     
     pbar = tqdm(train_loader, desc="Training")
     
