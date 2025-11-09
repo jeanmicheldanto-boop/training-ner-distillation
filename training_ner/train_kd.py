@@ -117,16 +117,30 @@ def train_epoch(
         
         optimizer.zero_grad()
         
-        # TODO: Implémenter forward passes
-        # 1. Forward teacher (no grad)
-        # 2. Forward student (with grad)
-        # 3. Calculer pertes via loss_fn
-        # 4. Backward + optimizer step
-        # 5. Gradient clipping
+        # 1. Forward teacher (no gradient)
+        with torch.no_grad():
+            teacher_outputs = teacher(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                labels=labels
+            )
         
-        # Placeholder loss (TODO: remplacer)
-        loss = torch.tensor(0.5, device=device, requires_grad=True)
+        # 2. Forward student (with gradient)
+        student_outputs = student(
+            input_ids=input_ids,
+            attention_mask=attention_mask,
+            labels=labels
+        )
         
+        # 3. Calculate distillation losses
+        loss, loss_ce, loss_kd, loss_hidden, loss_crf = loss_fn(
+            student_outputs=student_outputs,
+            teacher_outputs=teacher_outputs,
+            labels=labels,
+            attention_mask=attention_mask
+        )
+        
+        # 4. Backward pass
         if use_amp:
             scaler.scale(loss).backward()
             scaler.unscale_(optimizer)
@@ -138,12 +152,20 @@ def train_epoch(
             torch.nn.utils.clip_grad_norm_(student.parameters(), grad_clip)
             optimizer.step()
         
-        # Accumuler métriques
+        # 5. Accumulate metrics
         total_loss += loss.item()
+        total_loss_ce += loss_ce.item()
+        total_loss_kd += loss_kd.item()
+        total_loss_hidden += loss_hidden.item()
+        total_loss_crf += loss_crf.item()
         num_batches += 1
         
         # Update progress bar
-        pbar.set_postfix({"loss": f"{loss.item():.4f}"})
+        pbar.set_postfix({
+            "loss": f"{loss.item():.4f}",
+            "ce": f"{loss_ce.item():.4f}",
+            "kd": f"{loss_kd.item():.4f}"
+        })
     
     # Moyennes
     metrics = {
