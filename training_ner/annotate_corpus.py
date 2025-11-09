@@ -135,9 +135,14 @@ def annotate_batch(
     
     # Better word tokenization (handle punctuation)
     def tokenize_words(text):
-        # Split on whitespace and punctuation
-        words = re.findall(r"\w+(?:[-']\w+)*|[^\w\s]", text)
-        return [w for w in words if w.strip()]
+        # Split on whitespace first, then handle each token
+        tokens = []
+        for token in text.split():
+            # Keep apostrophe contractions together: l'union, c'est
+            # But split on hyphens, commas, periods, etc.
+            parts = re.findall(r"\w+(?:'\w+)?|[^\w\s]", token)
+            tokens.extend(parts)
+        return [w for w in tokens if w.strip()]
     
     # Collect all words from all sentences
     all_words = []
