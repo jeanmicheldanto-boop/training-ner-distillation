@@ -11,23 +11,18 @@ from transformers import (
     DataCollatorForTokenClassification,
 )
 import numpy as np
-import evaluate # Utilise la bibliothèque evaluate pour les métriques
+import evaluate
 import os
 
 # --- 1. Configuration ---
-# Modèles
 TEACHER_MODEL_ID = "jmdanto/titibongbong_camembert-ner-fp16"
-STUDENT_MODEL_ID = "camembert-ner-student-11L" # Nom du dossier de sortie
-
-# Fichiers
+STUDENT_MODEL_ID = "camembert-ner-student-11L"
 ANNOTATED_CORPUS_PATH = "corpus/annotated_corpus.jsonl"
-
-# Paramètres de distillation
 ALPHA_CE = 0.5
 ALPHA_DISTILL = 0.5
 TEMPERATURE = 2.0
 
-# --- 2. Chargement et préparation des données ---
+# --- 2. Chargement des données ---
 print("--- Step 2: Loading and preparing data ---")
 raw_datasets = load_dataset("json", data_files=ANNOTATED_CORPUS_PATH)
 train_test_split = raw_datasets["train"].train_test_split(test_size=0.1, seed=42)
@@ -37,9 +32,8 @@ datasets = DatasetDict({
 })
 print(f"Dataset loaded: {datasets}")
 
-# --- 3. Découverte des labels et initialisation ---
+# --- 3. Découverte des labels ---
 print("--- Step 3: Discovering labels and initializing models ---")
-print("Discovering unique labels from the dataset...")
 unique_ner_tags = set(tag for example in datasets["train"] for tag in example["ner_tags"])
 unique_ner_tags.update(set(tag for example in datasets["validation"] for tag in example["ner_tags"]))
 label_list = sorted(list(unique_ner_tags))
@@ -136,8 +130,9 @@ class DistillationTrainer(Trainer):
 print("--- Step 7: Training ---")
 training_args = TrainingArguments(
     output_dir=STUDENT_MODEL_ID,
-    evaluation_strategy="epoch", # Corrigé
-    save_strategy="epoch",       # Corrigé
+    # CORRECTION POUR LES ANCIENNES VERSIONS DE TRANSFORMERS
+    eval_strategy="epoch",
+    save_strategy="epoch",
     num_train_epochs=3,
     per_device_train_batch_size=8,
     per_device_eval_batch_size=8,
@@ -148,7 +143,7 @@ training_args = TrainingArguments(
     logging_dir='./logs',
     logging_steps=100,
     load_best_model_at_end=True,
-    metric_for_best_model="f1", # Utilise le F1 pour le meilleur modèle
+    metric_for_best_model="f1",
     greater_is_better=True,
 )
 
@@ -160,7 +155,7 @@ trainer = DistillationTrainer(
     data_collator=data_collator,
     tokenizer=tokenizer,
     teacher_model=teacher_model,
-    compute_metrics=compute_metrics, # Ajout de la fonction de métriques
+    compute_metrics=compute_metrics,
 )
 
 print("Starting training...")
