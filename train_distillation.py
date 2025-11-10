@@ -135,7 +135,7 @@ class DistillationTrainer(Trainer):
         self.teacher.to(self.args.device)
         self.teacher.eval()
 
-    def compute_loss(self, model, inputs, return_outputs=False):
+    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
         outputs_student = model(**inputs)
         loss_ce = outputs_student.loss
         with torch.no_grad():
@@ -168,7 +168,7 @@ training_args = TrainingArguments(
     greater_is_better=True,
     dataloader_num_workers=0,
     save_total_limit=2,  # Garder seulement les 2 meilleurs checkpoints
-    report_to=["tensorboard"],
+    report_to="none",  # Désactiver TensorBoard
 )
 
 trainer = DistillationTrainer(
