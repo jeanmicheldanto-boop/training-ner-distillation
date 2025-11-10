@@ -152,7 +152,7 @@ class DistillationTrainer(Trainer):
 print("--- Step 7: Training ---")
 training_args = TrainingArguments(
     output_dir=STUDENT_MODEL_ID,
-    evaluation_strategy="epoch",
+    eval_strategy="epoch",
     save_strategy="epoch",
     num_train_epochs=3,
     per_device_train_batch_size=8,
