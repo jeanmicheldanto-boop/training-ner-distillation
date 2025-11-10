@@ -137,14 +137,14 @@ training_args = TrainingArguments(
     per_device_eval_batch_size=8,
     learning_rate=2e-5,
     weight_decay=0.01,
-    fp16=True,
+    # MODIFICATION POUR LE DEBUGGING
+    fp16=False,
     push_to_hub=False,
     logging_dir='./logs',
     logging_steps=100,
     load_best_model_at_end=True,
     metric_for_best_model="f1",
     greater_is_better=True,
-    # AJOUT POUR ÉVITER LE BLOCAGE
     dataloader_num_workers=0,
 )
 
