@@ -36,7 +36,8 @@ def convert_entities_to_tokens(example):
     # Mapper les entités détectées aux tokens
     for entity in example.get("entities", []):
         entity_word = entity["word"]
-        entity_label = entity["entity_group"]
+        # Supprimer le préfixe I- ou B- pour simplifier
+        entity_label = entity["entity_group"].replace("I-", "").replace("B-", "")
         # Trouver le token correspondant (approximatif)
         for i, token in enumerate(tokens):
             if entity_word in token or token in entity_word:
@@ -159,7 +160,8 @@ training_args = TrainingArguments(
     per_device_eval_batch_size=8,
     learning_rate=2e-5,
     weight_decay=0.01,
-    fp16=False,  # Désactivé pour éviter les problèmes de gradient
+    fp16=True,  # Activé pour GPU
+    max_grad_norm=0.0,  # Désactiver gradient clipping pour éviter erreur FP16
     push_to_hub=False,
     logging_dir='./logs',
     logging_steps=100,
