@@ -125,6 +125,9 @@ for i in range(student_config.num_hidden_layers):
 # Copier aussi le classifier head du teacher
 student_model.classifier.load_state_dict(teacher_model.classifier.state_dict())
 
+# Convertir le student en FP32 pour l'entraînement (le teacher est en FP16)
+student_model = student_model.float()
+
 print("Teacher and Student models initialized.")
 print("\n--- DEBUG LABELS ---")
 print("Model labels:", student_model.config.id2label)
