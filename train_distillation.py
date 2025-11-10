@@ -18,9 +18,9 @@ import os
 TEACHER_MODEL_ID = "jmdanto/titibongbong_camembert-ner-fp16"
 STUDENT_MODEL_ID = "camembert-ner-student-11L"
 ANNOTATED_CORPUS_PATH = "corpus/annotated_corpus_fixed.jsonl"
-ALPHA_CE = 0.5
-ALPHA_DISTILL = 0.5
-TEMPERATURE = 2.0
+ALPHA_CE = 0.1  # Réduire pour moins pénaliser les entités rares
+ALPHA_DISTILL = 0.9  # Augmenter pour que le student imite plus le teacher
+TEMPERATURE = 4.0  # Augmenter pour des logits plus doux
 
 # --- 2. Chargement des données ---
 print("--- Step 2: Loading and preparing data ---")
