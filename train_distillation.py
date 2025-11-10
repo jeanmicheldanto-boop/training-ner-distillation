@@ -25,6 +25,27 @@ TEMPERATURE = 2.0
 # --- 2. Chargement des données ---
 print("--- Step 2: Loading and preparing data ---")
 raw_datasets = load_dataset("json", data_files=ANNOTATED_CORPUS_PATH)
+
+# Convertir le format d'annotation en format tokens + ner_tags
+def convert_entities_to_tokens(example):
+    """Convertit le format {text, entities} en format {tokens, ner_tags}"""
+    text = example["text"]
+    tokens = text.split()
+    ner_tags = ["O"] * len(tokens)
+    
+    # Mapper les entités détectées aux tokens
+    for entity in example.get("entities", []):
+        entity_word = entity["word"]
+        entity_label = entity["entity_group"]
+        # Trouver le token correspondant (approximatif)
+        for i, token in enumerate(tokens):
+            if entity_word in token or token in entity_word:
+                ner_tags[i] = entity_label
+                break
+    
+    return {"tokens": tokens, "ner_tags": ner_tags}
+
+raw_datasets = raw_datasets.map(convert_entities_to_tokens)
 train_test_split = raw_datasets["train"].train_test_split(test_size=0.1, seed=42)
 datasets = DatasetDict({
     'train': train_test_split['train'],
@@ -42,7 +63,8 @@ id2label = {i: label for i, label in enumerate(label_list)}
 num_labels = len(label_list)
 print(f"Discovered {num_labels} labels: {label_list}")
 
-tokenizer = AutoTokenizer.from_pretrained(TEACHER_MODEL_ID)
+# Utiliser le tokenizer de base camembert pour éviter les problèmes
+tokenizer = AutoTokenizer.from_pretrained("camembert-base")
 
 # --- 4. Fonctions de préparation et métriques ---
 def tokenize_and_align_labels(examples):
@@ -137,8 +159,7 @@ training_args = TrainingArguments(
     per_device_eval_batch_size=8,
     learning_rate=2e-5,
     weight_decay=0.01,
-    # MODIFICATION POUR LE DEBUGGING
-    fp16=False,
+    fp16=True,  # Activé pour GPU
     push_to_hub=False,
     logging_dir='./logs',
     logging_steps=100,
@@ -146,6 +167,8 @@ training_args = TrainingArguments(
     metric_for_best_model="f1",
     greater_is_better=True,
     dataloader_num_workers=0,
+    save_total_limit=2,  # Garder seulement les 2 meilleurs checkpoints
+    report_to=["tensorboard"],
 )
 
 trainer = DistillationTrainer(
