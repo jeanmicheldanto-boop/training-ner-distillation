@@ -17,7 +17,7 @@ import os
 # --- 1. Configuration ---
 TEACHER_MODEL_ID = "jmdanto/titibongbong_camembert-ner-fp16"
 STUDENT_MODEL_ID = "camembert-ner-student-11L"
-ANNOTATED_CORPUS_PATH = "corpus/annotated_corpus.jsonl"
+ANNOTATED_CORPUS_PATH = "corpus/annotated_corpus_fixed.jsonl"
 ALPHA_CE = 0.5
 ALPHA_DISTILL = 0.5
 TEMPERATURE = 2.0
