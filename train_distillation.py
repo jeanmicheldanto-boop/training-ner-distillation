@@ -42,59 +42,37 @@ datasets = DatasetDict({
 
 print(f"Dataset loaded: {datasets}")
 
+# --- 3. Découverte des labels et initialisation des modèles ---
+print("--- Step 3: Discovering labels and initializing models ---")
+
+# Découvrir tous les labels uniques à partir du dataset
+print("Discovering unique labels from the dataset...")
+unique_ner_tags = set(tag for example in datasets["train"] for tag in example["ner_tags"])
+unique_ner_tags.update(set(tag for example in datasets["validation"] for tag in example["ner_tags"]))
+label_list = sorted(list(unique_ner_tags))
+label2id = {label: i for i, label in enumerate(label_list)}
+id2label = {i: label for i, label in enumerate(label_list)}
+num_labels = len(label_list)
+
+print(f"Discovered {num_labels} labels: {label_list}")
+
 # Charger le tokenizer du professeur
 tokenizer = AutoTokenizer.from_pretrained(TEACHER_MODEL_ID)
 
-# Récupérer les labels depuis la config du professeur
-teacher_config = AutoConfig.from_pretrained(TEACHER_MODEL_ID)
-label2id = teacher_config.label2id
-id2label = teacher_config.id2label
-num_labels = len(label2id)
-
-def tokenize_and_align_labels(examples):
-    """Fonction pour tokenizer le texte et aligner les labels."""
-    tokenized_inputs = tokenizer(
-        examples["tokens"],
-        truncation=True,
-        is_split_into_words=True,
-        max_length=512
-    )
-    labels = []
-    for i, label in enumerate(examples["ner_tags"]):
-        word_ids = tokenized_inputs.word_ids(batch_index=i)
-        previous_word_idx = None
-        label_ids = []
-        for word_idx in word_ids:
-            if word_idx is None:
-                label_ids.append(-100)
-            elif word_idx != previous_word_idx:
-                label_str = label[word_idx]
-                label_ids.append(label2id[label_str])
-            else:
-                # C'est un sous-mot, on met -100 aussi
-                label_ids.append(-100)
-            previous_word_idx = word_idx
-        labels.append(label_ids)
-    tokenized_inputs["labels"] = labels
-    return tokenized_inputs
-
-tokenized_datasets = datasets.map(tokenize_and_align_labels, batched=True)
-data_collator = DataCollatorForTokenClassification(tokenizer=tokenizer)
-
-# --- 3. Initialisation des modèles ---
-print("--- Step 3: Initializing models ---")
-
-# Charger le modèle professeur
+# Charger le modèle professeur AVEC la nouvelle liste de labels
 teacher_model = AutoModelForTokenClassification.from_pretrained(
     TEACHER_MODEL_ID,
+    num_labels=num_labels,
     id2label=id2label,
     label2id=label2id,
+    ignore_mismatched_sizes=True, # Important car la tête de classification peut ne pas correspondre
 )
 
-# Créer la configuration de l'étudiant en retirant une couche
+# Créer la configuration de l'étudiant en retirant une couche et AVEC les bons labels
 student_config = AutoConfig.from_pretrained(
     TEACHER_MODEL_ID,
     num_hidden_layers=11,
+    num_labels=num_labels,
     id2label=id2label,
     label2id=label2id,
 )
