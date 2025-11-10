@@ -82,9 +82,9 @@ student_model = AutoModelForTokenClassification.from_config(student_config)
 
 # Copier les poids du professeur vers l'étudiant pour les couches correspondantes
 # C'est une étape cruciale pour une bonne initialisation
-student_model.camembert.embeddings.load_state_dict(teacher_model.camembert.embeddings.state_dict())
+student_model.roberta.embeddings.load_state_dict(teacher_model.roberta.embeddings.state_dict())
 for i in range(student_config.num_hidden_layers):
-    student_model.camembert.encoder.layer[i].load_state_dict(teacher_model.camembert.encoder.layer[i].state_dict())
+    student_model.roberta.encoder.layer[i].load_state_dict(teacher_model.roberta.encoder.layer[i].state_dict())
 
 print("Teacher and Student models initialized.")
 print(f"Teacher layers: {teacher_model.config.num_hidden_layers}")
