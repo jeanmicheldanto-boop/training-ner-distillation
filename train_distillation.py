@@ -126,6 +126,9 @@ student_model = AutoModelForTokenClassification.from_config(student_config)
 student_model.roberta.embeddings.load_state_dict(teacher_model.roberta.embeddings.state_dict())
 for i in range(student_config.num_hidden_layers):
     student_model.roberta.encoder.layer[i].load_state_dict(teacher_model.roberta.encoder.layer[i].state_dict())
+
+# Copier aussi le classifier head du teacher
+student_model.classifier.load_state_dict(teacher_model.classifier.state_dict())
 print("Teacher and Student models initialized.")
 
 # --- 6. Définition du Trainer de Distillation ---
