@@ -16,7 +16,7 @@ with open("corpus/annotated_corpus.jsonl") as f:
 
 print(f"\nNombre d'exemples chargés: {len(examples)}")
 for i, ex in enumerate(examples[:3]):
-    if ex['entities']:
+    if ex.get('entities'):
         print(f"\nExemple {i}:")
         print(f"  Text: {ex['text'][:80]}...")
         print(f"  Entities: {ex['entities']}")
@@ -53,7 +53,7 @@ def convert_entities_to_tokens(example):
 
 # Tester la conversion
 for i, ex in enumerate(examples[:3]):
-    if ex['entities']:
+    if ex.get('entities'):
         converted = convert_entities_to_tokens(ex)
         print(f"\nExemple {i} converti:")
         print(f"  Tokens: {converted['tokens'][:10]}")
