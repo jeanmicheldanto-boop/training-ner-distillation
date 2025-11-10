@@ -29,7 +29,9 @@ def read_sentences_in_batches(file_path, batch_size):
 def main():
     print("--- Step 1: Initializing model and tokenizer ---")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_ID, use_fast=False)
+    
+    # Load tokenizer from base CamemBERT to avoid corrupted tokenizer.json
+    tokenizer = AutoTokenizer.from_pretrained("camembert-base")
     model = AutoModelForTokenClassification.from_pretrained(MODEL_ID).to(device)
     model.eval() # Mettre le modèle en mode évaluation
     print(f"Model loaded on device: {device}")
