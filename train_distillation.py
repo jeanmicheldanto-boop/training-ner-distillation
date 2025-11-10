@@ -57,6 +57,12 @@ def tokenize_and_align_labels(examples):
     for tokens_list, ner_tags_list in zip(examples["tokens"], examples["ner_tags"]):
         # Convertir les tokens en IDs
         ids = tokenizer.convert_tokens_to_ids(tokens_list)
+        
+        # Tronquer si nécessaire
+        if len(ids) > 512:
+            ids = ids[:512]
+            ner_tags_list = ner_tags_list[:512]
+        
         input_ids.append(ids)
         attention_mask.append([1] * len(ids))
         
@@ -75,7 +81,7 @@ def tokenize_and_align_labels(examples):
         "labels": labels
     }
 
-tokenized_datasets = datasets.map(tokenize_and_align_labels, batched=True)
+tokenized_datasets = datasets.map(tokenize_and_align_labels, batched=True, remove_columns=datasets["train"].column_names)
 data_collator = DataCollatorForTokenClassification(tokenizer=tokenizer)
 
 metric = evaluate.load("seqeval")
