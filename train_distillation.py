@@ -26,41 +26,7 @@ TEMPERATURE = 2.0
 print("--- Step 2: Loading and preparing data ---")
 raw_datasets = load_dataset("json", data_files=ANNOTATED_CORPUS_PATH)
 
-# Convertir le format d'annotation en format tokens + ner_tags
-def convert_entities_to_tokens(example):
-    """Convertit le format {text, entities} en format {tokens, ner_tags}"""
-    text = example["text"]
-    tokens = text.split()
-    ner_tags = ["O"] * len(tokens)
-    
-    # Mapper les entités détectées aux tokens en utilisant la position dans le texte
-    for entity in example.get("entities", []):
-        entity_word = entity["word"]
-        entity_label = entity["entity_group"]
-        
-        # Trouver la position de l'entité dans le texte
-        entity_start = text.find(entity_word)
-        if entity_start == -1:
-            continue  # Entité non trouvée dans le texte
-        
-        entity_end = entity_start + len(entity_word)
-        
-        # Trouver les tokens correspondants
-        char_pos = 0
-        for i, token in enumerate(tokens):
-            token_start = char_pos
-            token_end = char_pos + len(token)
-            
-            # Vérifier si le token chevauche l'entité
-            if not (token_end <= entity_start or token_start >= entity_end):
-                ner_tags[i] = entity_label
-            
-            # Avancer la position (token + espace)
-            char_pos = text.find(token, char_pos) + len(token)
-    
-    return {"tokens": tokens, "ner_tags": ner_tags}
-
-raw_datasets = raw_datasets.map(convert_entities_to_tokens)
+# Le corpus est déjà au bon format (tokens + ner_tags), pas besoin de conversion
 train_test_split = raw_datasets["train"].train_test_split(test_size=0.1, seed=42)
 datasets = DatasetDict({
     'train': train_test_split['train'],
