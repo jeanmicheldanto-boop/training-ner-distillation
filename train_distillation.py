@@ -36,8 +36,8 @@ def convert_entities_to_tokens(example):
     # Mapper les entités détectées aux tokens
     for entity in example.get("entities", []):
         entity_word = entity["word"]
-        # Supprimer le préfixe I- ou B- pour simplifier
-        entity_label = entity["entity_group"].replace("I-", "").replace("B-", "")
+        # Garder le label tel quel (I-PER, I-LOC, etc.)
+        entity_label = entity["entity_group"]
         # Trouver le token correspondant (approximatif)
         for i, token in enumerate(tokens):
             if entity_word in token or token in entity_word:
