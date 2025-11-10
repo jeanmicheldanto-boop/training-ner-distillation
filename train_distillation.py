@@ -144,13 +144,30 @@ class DistillationTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
         outputs_student = model(**inputs)
         loss_ce = outputs_student.loss
+        
+        # Vérifier si la loss CE est valide
+        if torch.isnan(loss_ce) or torch.isinf(loss_ce):
+            print(f"WARNING: CE loss is NaN or Inf: {loss_ce.item()}")
+            loss_ce = torch.tensor(0.0, device=loss_ce.device)
+        
         with torch.no_grad():
             outputs_teacher = self.teacher(**inputs)
+        
+        # Clamp les logits pour éviter les valeurs extrêmes
+        student_logits = torch.clamp(outputs_student.logits, min=-10, max=10)
+        teacher_logits = torch.clamp(outputs_teacher.logits, min=-10, max=10)
+        
         loss_fct = nn.KLDivLoss(reduction="batchmean")
         loss_distill = loss_fct(
-            F.log_softmax(outputs_student.logits / TEMPERATURE, dim=-1),
-            F.softmax(outputs_teacher.logits / TEMPERATURE, dim=-1),
+            F.log_softmax(student_logits / TEMPERATURE, dim=-1),
+            F.softmax(teacher_logits / TEMPERATURE, dim=-1),
         ) * (TEMPERATURE ** 2)
+        
+        # Vérifier si la distillation loss est valide
+        if torch.isnan(loss_distill) or torch.isinf(loss_distill):
+            print(f"WARNING: Distillation loss is NaN or Inf: {loss_distill.item()}")
+            loss_distill = torch.tensor(0.0, device=loss_distill.device)
+        
         loss = ALPHA_CE * loss_ce + ALPHA_DISTILL * loss_distill
         return (loss, outputs_student) if return_outputs else loss
 
