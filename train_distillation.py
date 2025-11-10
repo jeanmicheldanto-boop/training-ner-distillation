@@ -36,13 +36,16 @@ print(f"Dataset loaded: {datasets}")
 
 # --- 3. Découverte des labels ---
 print("--- Step 3: Discovering labels and initializing models ---")
-unique_ner_tags = set(tag for example in datasets["train"] for tag in example["ner_tags"])
-unique_ner_tags.update(set(tag for example in datasets["validation"] for tag in example["ner_tags"]))
-label_list = sorted(list(unique_ner_tags))
-label2id = {label: i for i, label in enumerate(label_list)}
-id2label = {i: label for i, label in enumerate(label_list)}
+
+# Utiliser exactement le même mapping de labels que le teacher
+teacher_config = AutoConfig.from_pretrained(TEACHER_MODEL_ID)
+label2id = teacher_config.label2id
+id2label = teacher_config.id2label
+label_list = [id2label[i] for i in sorted(id2label.keys())]
 num_labels = len(label_list)
-print(f"Discovered {num_labels} labels: {label_list}")
+
+print(f"Using teacher's label mapping: {label_list}")
+print(f"Number of labels: {num_labels}")
 
 # Utiliser le tokenizer de base camembert pour éviter les problèmes
 tokenizer = AutoTokenizer.from_pretrained("camembert-base")
