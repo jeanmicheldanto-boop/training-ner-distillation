@@ -33,16 +33,30 @@ def convert_entities_to_tokens(example):
     tokens = text.split()
     ner_tags = ["O"] * len(tokens)
     
-    # Mapper les entités détectées aux tokens
+    # Mapper les entités détectées aux tokens en utilisant la position dans le texte
     for entity in example.get("entities", []):
         entity_word = entity["word"]
-        # Garder le label tel quel (I-PER, I-LOC, etc.)
         entity_label = entity["entity_group"]
-        # Trouver le token correspondant (approximatif)
+        
+        # Trouver la position de l'entité dans le texte
+        entity_start = text.find(entity_word)
+        if entity_start == -1:
+            continue  # Entité non trouvée dans le texte
+        
+        entity_end = entity_start + len(entity_word)
+        
+        # Trouver les tokens correspondants
+        char_pos = 0
         for i, token in enumerate(tokens):
-            if entity_word in token or token in entity_word:
+            token_start = char_pos
+            token_end = char_pos + len(token)
+            
+            # Vérifier si le token chevauche l'entité
+            if not (token_end <= entity_start or token_start >= entity_end):
                 ner_tags[i] = entity_label
-                break
+            
+            # Avancer la position (token + espace)
+            char_pos = text.find(token, char_pos) + len(token)
     
     return {"tokens": tokens, "ner_tags": ner_tags}
 
