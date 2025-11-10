@@ -143,7 +143,14 @@ for i in range(student_config.num_hidden_layers):
 
 # Copier aussi le classifier head du teacher
 student_model.classifier.load_state_dict(teacher_model.classifier.state_dict())
+
 print("Teacher and Student models initialized.")
+print("\n--- DEBUG LABELS ---")
+print("Model labels:", student_model.config.id2label)
+print("Teacher labels:", teacher_model.config.id2label)
+print("Dataset labels:", label_list)
+print("label2id:", label2id)
+print("id2label:", id2label)
 
 # --- 6. Définition du Trainer de Distillation ---
 class DistillationTrainer(Trainer):
